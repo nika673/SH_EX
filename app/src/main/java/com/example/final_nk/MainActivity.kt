@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
                 && eMail.text.contains("@")
                 && eMail.text.contains(".")
                 && password.text.length > 7
+                && password.text.contains("[0-9]".toRegex())
                 && checkBox.isChecked
             ) {
                 Toast.makeText(
@@ -67,11 +68,11 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
 
-            } else if (password.text.length < 8) {
+            } else if (password.text.length < 8 ||  !password.text.contains("[0-9]".toRegex())) {
 
                 Toast.makeText(
                     this,
-                    "პაროლის ველში უნდა შეიყვანოთ მინიმუმ 8 სიმბოლო!",
+                    "პაროლის ველში უნდა შეიყვანოთ მინიმუმ 8 სიმბოლო და ერთი რიცხვი !",
                     Toast.LENGTH_SHORT
                 ).show()
 
